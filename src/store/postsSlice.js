@@ -23,7 +23,6 @@ export const createPost = createAsyncThunk(
     });
 
     const data = await response.json();
-    console.log(data);
     return data;
   }
 );
@@ -50,7 +49,5 @@ export const postsSlice = createSlice({
     },
   },
 });
-
-export const {} = postsSlice.actions;
 
 export default postsSlice.reducer;
