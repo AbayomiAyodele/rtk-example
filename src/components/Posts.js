@@ -1,14 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+
+// redux stuff
+import { useDispatch, useSelector } from "react-redux";
+import { fetchPosts } from "store/postsSlice";
 
 const Posts = () => {
-  const [posts, setPosts] = useState([]);
+  // hooking into app state to get dispatch fn, and posts state
+  const dispatch = useDispatch();
+  const { posts } = useSelector((state) => state.postsState);
 
   // fetching 100 posts on component mount
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
-      .then((res) => res.json())
-      .then((data) => setPosts(data));
-  }, []);
+    dispatch(fetchPosts());
+  }, [dispatch]);
 
   return (
     <>

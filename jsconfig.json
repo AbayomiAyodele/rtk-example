@@ -1,3 +1,5 @@
+// setting absolute imports, so all imports can be relative to src
+
 {
   "compilerOptions": {
     "baseUrl": "src"
